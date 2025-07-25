@@ -1,382 +1,603 @@
 <!DOCTYPE html>
-<html lang="es" class="scroll-smooth">
+<html lang="es">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title> (CEO) - Soluciones Integrales en Fianzas</title>
-    <!-- Favicon placeholder -->
-    <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath fill='%234E2D8E' d='M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 15h-2v-6h2v6zm0-8h-2V7h2v2z'/%3E%3C/svg%3E" type="image/svg+xml">
+    <title>CEO - Cascos Expertise Outsourcing | Seguros y Fianzas</title>
+    <meta name="description" content="Despacho de consultoría especializado en la gestión integral de seguros y fianzas para el sector de la construcción e infraestructura.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&family=Roboto:wght@400;500&display=swap" rel="stylesheet">
+    <script src="https://kit.fontawesome.com/4e1e4a6405.js" crossorigin="anonymous"></script>
 
-    <!-- Google Fonts Poppins -->
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
-    <!-- Tailwind CSS CDN -->
-    <script src="https://cdn.tailwindcss.com"></script>
-    <script>
-        tailwind.config = {
-            theme: {
-                extend: {
-                    colors: {
-                        'ceo-purple': '#4E2D8E',
-                        'graphite-dark': '#1E1E1E',
-                        'brushed-gray': '#4B4B4B',
-                        'light-white': '#FFFFFF',
-                    },
-                    fontFamily: {
-                        poppins: ['Poppins', 'sans-serif'],
-                    },
-                }
+    <style>
+        /* --- VARIABLES Y ESTILOS GLOBALES --- */
+        :root {
+            --ceo-blue: #0D203D;
+            --expertise-gold: #D4AF37;
+            --light-gray: #F4F4F8;
+            --dark-gray: #333333;
+            --white: #FFFFFF;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+            font-size: 16px;
+        }
+
+        body {
+            font-family: 'Roboto', sans-serif;
+            color: var(--dark-gray);
+            line-height: 1.6;
+        }
+
+        h1, h2, h3 {
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 700;
+            color: var(--ceo-blue);
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        section {
+            padding: 80px 0;
+        }
+        
+        .section-title {
+            text-align: center;
+            font-size: 2.5rem;
+            margin-bottom: 60px;
+            position: relative;
+        }
+
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: -15px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 4px;
+            background-color: var(--expertise-gold);
+            border-radius: 2px;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 12px 28px;
+            background-color: var(--expertise-gold);
+            color: var(--white);
+            text-decoration: none;
+            font-weight: 600;
+            font-family: 'Montserrat', sans-serif;
+            border-radius: 5px;
+            transition: background-color 0.3s, transform 0.3s;
+            border: 2px solid transparent;
+        }
+
+        .btn:hover {
+            background-color: #c49d2b;
+            transform: translateY(-3px);
+        }
+
+        /* --- HEADER --- */
+        .header {
+            background-color: var(--white);
+            padding: 15px 0;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+
+        .header .container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .logo-container {
+             display: flex;
+             align-items: center;
+        }
+
+        .logo {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: var(--ceo-blue);
+            text-decoration: none;
+        }
+
+        .nav-links {
+            list-style: none;
+            display: flex;
+        }
+
+        .nav-links li {
+            margin-left: 30px;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: var(--ceo-blue);
+            font-weight: 600;
+            font-family: 'Montserrat', sans-serif;
+            position: relative;
+            padding-bottom: 5px;
+        }
+
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background-color: var(--expertise-gold);
+            transition: width 0.3s;
+        }
+
+        .nav-links a:hover::after {
+            width: 100%;
+        }
+
+        .mobile-menu-toggle {
+            display: none;
+            font-size: 1.5rem;
+            color: var(--ceo-blue);
+            background: none;
+            border: none;
+            cursor: pointer;
+        }
+
+        /* --- HERO SECTION --- */
+        .hero {
+            background-image: linear-gradient(rgba(13, 32, 61, 0.8), rgba(13, 32, 61, 0.8)), url('https://images.unsplash.com/photo-1541888946425-d81bb19240f5?q=80&w=2070&auto=format&fit=crop');
+            background-size: cover;
+            background-position: center;
+            color: var(--white);
+            text-align: center;
+            padding: 150px 0;
+        }
+
+        .hero h1 {
+            font-size: 3.5rem;
+            margin-bottom: 20px;
+            color: var(--white);
+        }
+
+        .hero p {
+            font-size: 1.25rem;
+            margin-bottom: 40px;
+            max-width: 700px;
+            margin-left: auto;
+            margin-right: auto;
+            font-family: 'Roboto', sans-serif;
+            font-weight: 400;
+        }
+
+        /* --- SERVICES SECTION --- */
+        #services {
+            background-color: var(--light-gray);
+        }
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+
+        .service-card {
+            background-color: var(--white);
+            padding: 40px 30px;
+            text-align: center;
+            border-radius: 8px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.08);
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .service-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 8px 25px rgba(0,0,0,0.12);
+        }
+
+        .service-card .icon {
+            font-size: 3rem;
+            color: var(--expertise-gold);
+            margin-bottom: 20px;
+        }
+
+        .service-card h3 {
+            font-size: 1.5rem;
+            margin-bottom: 15px;
+        }
+
+        /* --- ABOUT US SECTION --- */
+        .about-us-content {
+            display: flex;
+            align-items: center;
+            gap: 60px;
+        }
+
+        .about-us-text {
+            flex: 1;
+        }
+        
+        .about-us-text h2 {
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+        }
+        
+        .about-us-text p {
+             margin-bottom: 20px;
+        }
+        
+        .mission-box {
+            background-color: var(--light-gray);
+            padding: 20px;
+            border-left: 4px solid var(--expertise-gold);
+            border-radius: 0 5px 5px 0;
+        }
+        
+        .mission-box h4 {
+            font-family: 'Montserrat', sans-serif;
+            color: var(--ceo-blue);
+            font-size: 1.2rem;
+        }
+
+        .about-us-image {
+            flex: 1;
+            max-width: 500px;
+        }
+
+        .about-us-image img {
+            width: 100%;
+            border-radius: 8px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+        }
+
+        /* --- ADVANTAGE SECTION --- */
+        .advantage-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+        }
+
+        .advantage-item {
+            display: flex;
+            align-items: flex-start;
+        }
+
+        .advantage-item .icon {
+            font-size: 1.5rem;
+            color: var(--expertise-gold);
+            margin-right: 20px;
+            margin-top: 5px;
+        }
+        
+        .advantage-item h4 {
+            font-size: 1.2rem;
+            color: var(--ceo-blue);
+            margin-bottom: 5px;
+        }
+
+        /* --- CTA SECTION --- */
+        .cta-section {
+            background-color: var(--ceo-blue);
+            color: var(--white);
+            text-align: center;
+            padding: 80px 20px;
+        }
+        
+        .cta-section h2 {
+            font-size: 2.5rem;
+            margin-bottom: 30px;
+            color: var(--white);
+        }
+
+        /* --- FOOTER --- */
+        .footer {
+            background-color: var(--dark-gray);
+            color: var(--light-gray);
+            padding: 60px 0 20px 0;
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+
+        .footer-column h4 {
+            font-family: 'Montserrat', sans-serif;
+            color: var(--white);
+            font-size: 1.2rem;
+            margin-bottom: 20px;
+        }
+
+        .footer-column p, .footer-column a {
+            color: var(--light-gray);
+            text-decoration: none;
+            margin-bottom: 10px;
+            display: block;
+            transition: color 0.3s;
+        }
+
+        .footer-column a:hover {
+            color: var(--expertise-gold);
+        }
+        
+        .social-icons a {
+            display: inline-block;
+            margin-right: 15px;
+            font-size: 1.5rem;
+        }
+
+        .footer-bottom {
+            text-align: center;
+            border-top: 1px solid #555;
+            padding-top: 20px;
+            font-size: 0.9rem;
+        }
+
+        /* --- RESPONSIVE DESIGN --- */
+        @media (max-width: 992px) {
+            .about-us-content {
+                flex-direction: column;
+            }
+            .about-us-image {
+                margin-top: 40px;
             }
         }
-    </script>
-    <!-- Font Awesome 6 CDN for icons -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" xintegrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-    <style>
-        /* Custom scrollbar for better aesthetics */
-        ::-webkit-scrollbar {
-            width: 8px;
-        }
-        ::-webkit-scrollbar-track {
-            background: #1E1E1E; /* Dark background */
-        }
-        ::-webkit-scrollbar-thumb {
-            background: #4E2D8E; /* CEO Purple */
-            border-radius: 4px;
-        }
-        ::-webkit-scrollbar-thumb:hover {
-            background: #6a3dc4; /* Lighter purple on hover */
+        
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+                flex-direction: column;
+                position: absolute;
+                top: 70px;
+                left: 0;
+                width: 100%;
+                background-color: var(--white);
+                box-shadow: 0 5px 10px rgba(0,0,0,0.1);
+            }
+
+            .nav-links.active {
+                display: flex;
+            }
+
+            .nav-links li {
+                margin: 0;
+                text-align: center;
+            }
+            
+            .nav-links a {
+                padding: 15px 0;
+                display: block;
+                width: 100%;
+            }
+            
+            .nav-links a::after {
+                display: none;
+            }
+
+            .mobile-menu-toggle {
+                display: block;
+            }
+            
+            .header .btn {
+                display: none; /* Oculta el botón principal en móvil, la acción de contacto es más importante en la página */
+            }
+
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+
+            .hero p {
+                font-size: 1.1rem;
+            }
+            
+            section {
+                padding: 60px 0;
+            }
+
+            .section-title {
+                font-size: 2rem;
+            }
         }
     </style>
 </head>
-<body class="font-poppins bg-graphite-dark text-light-white antialiased">
+<body>
 
-    <!-- Header -->
-    <header class="fixed top-0 left-0 right-0 bg-graphite-dark bg-opacity-95 shadow-lg z-50 py-4 px-6 md:px-12 flex justify-between items-center rounded-b-lg">
-        <a href="#hero" class="flex items-center space-x-2" aria-label="Logo de Cascos Expertise Outsourcing (CEO)">
-            <!-- Inline SVG Logo: Simple "CEO" text -->
-            <svg class="h-8 w-auto" viewBox="0 0 100 40" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-                <text x="0" y="30" font-family="Poppins" font-weight="700" font-size="30" fill="#4E2D8E">CEO</text>
-                <text x="38" y="30" font-family="Poppins" font-weight="400" font-size="12" fill="#FFFFFF">Cascos Expertise Outsourcing</text>
-            </svg>
-        </a>
-        <nav class="hidden md:flex space-x-8">
-            <a href="#hero" class="text-light-white hover:text-ceo-purple transition duration-300" aria-label="Ir a la sección de Inicio">Inicio</a>
-            <a href="#packages" class="text-light-white hover:text-ceo-purple transition duration-300" aria-label="Ver nuestros paquetes de consultoría">Paquetes</a>
-            <a href="#ventajas" class="text-light-white hover:text-ceo-purple transition duration-300" aria-label="Conocer nuestras ventajas competitivas">Ventajas</a>
-            <a href="#about" class="text-light-white hover:text-ceo-purple transition duration-300" aria-label="Acerca de CEO">Nosotros</a>
-            <a href="#contact" class="text-light-white hover:text-ceo-purple transition duration-300" aria-label="Contactar a CEO">Contacto</a>
-        </nav>
-        <!-- Mobile Menu Button (Hamburger) -->
-        <button id="mobile-menu-button" class="md:hidden text-light-white focus:outline-none" aria-label="Abrir menú de navegación móvil">
-            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path></svg>
-        </button>
+    <header class="header" id="header">
+        <div class="container">
+            <a href="#" class="logo">CEO</a>
+            <nav>
+                <ul class="nav-links" id="nav-links">
+                    <li><a href="#hero">Inicio</a></li>
+                    <li><a href="#services">Servicios</a></li>
+                    <li><a href="#about">Nosotros</a></li>
+                    <li><a href="#contact">Contacto</a></li>
+                </ul>
+            </nav>
+            <a href="#contact" class="btn">Cotizar Ahora</a>
+            <button class="mobile-menu-toggle" id="mobile-menu-toggle" aria-label="Menu">
+                <i class="fas fa-bars"></i>
+            </button>
+        </div>
     </header>
 
-    <!-- Mobile Navigation Menu (Hidden by default) -->
-    <nav id="mobile-menu" class="hidden fixed top-0 left-0 w-full h-full bg-graphite-dark bg-opacity-95 z-40 flex flex-col items-center justify-center space-y-8 md:hidden rounded-lg">
-        <button id="close-mobile-menu" class="absolute top-6 right-6 text-light-white focus:outline-none" aria-label="Cerrar menú de navegación móvil">
-            <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path></svg>
-        </button>
-        <a href="#hero" class="text-light-white text-2xl hover:text-ceo-purple transition duration-300" aria-label="Ir a la sección de Inicio">Inicio</a>
-        <a href="#packages" class="text-light-white text-2xl hover:text-ceo-purple transition duration-300" aria-label="Ver nuestros paquetes de consultoría">Paquetes</a>
-        <a href="#ventajas" class="text-light-white text-2xl hover:text-ceo-purple transition duration-300" aria-label="Conocer nuestras ventajas competitivas">Ventajas</a>
-        <a href="#about" class="text-light-white text-2xl hover:text-ceo-purple transition duration-300" aria-label="Acerca de CEO">Nosotros</a>
-        <a href="#contact" class="text-light-white text-2xl hover:text-ceo-purple transition duration-300" aria-label="Contactar a CEO">Contacto</a>
-    </nav>
-
-    <main class="pt-20">
-        <!-- Hero Section -->
-        <section id="hero" class="relative bg-ceo-purple py-24 md:py-32 lg:py-48 flex items-center justify-center text-center overflow-hidden rounded-b-3xl">
-            <div class="absolute inset-0 bg-cover bg-center opacity-20" style="background-image: url('https://placehold.co/1920x1080/4E2D8E/FFFFFF?text=Fondo+Construccion');" role="img" aria-label="Imagen de fondo de un sitio de construcción"></div>
-            <div class="relative z-10 max-w-4xl px-6">
-                <h1 class="text-4xl md:text-6xl font-extrabold leading-tight text-light-white mb-6 animate-fade-in-up">
-                    <span class="block text-brushed-purpule text-2xl md:text-4xl mb-2">Optimiza tu Operación, Construye el Futuro.</span>
-                    Outsourcing Estratégico para el Sector de la Construcción.
-                </h1>
-                <p class="text-xl md:text-2xl text-light-white mb-10 opacity-90 animate-fade-in-up delay-200">
-                    En CEO, transformamos tus desafíos operativos en ventajas competitivas.
-                </p>
-                <a href="#contact" class="inline-block bg-light-white text-ceo-purple font-bold py-3 px-8 rounded-full shadow-lg hover:bg-gray-200 transition duration-300 transform hover:scale-105 animate-fade-in-up delay-400" aria-label="Contacta a CEO para una consulta">
-                    Agenda una Consulta Gratuita
-                </a>
+    <main>
+        <section class="hero" id="hero">
+            <div class="container">
+                <h1>La Certeza que su Proyecto Necesita</h1>
+                <p>Soluciones Integrales en Seguros y Fianzas para la industria de la construcción.</p>
+                <a href="#services" class="btn">Nuestros Servicios</a>
             </div>
         </section>
 
-        <!-- Packages Section -->
-        <section id="packages" class="py-16 md:py-24 bg-graphite-dark px-6 lg:px-12 rounded-lg">
-            <h2 class="text-3xl md:text-5xl font-bold text-center text-light-white mb-12">Nuestros Paquetes de Consultoría</h2>
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-7xl mx-auto">
-
-                <!-- Package Bronce -->
-                <div class="bg-brushed-gray p-8 rounded-2xl shadow-xl border-2 border-transparent hover:border-ceo-purple transition duration-300 transform hover:-translate-y-2">
-                    <h3 class="text-3xl font-bold text-ceo-purple mb-4">Bronce</h3>
-                    <p class="text-light-white text-opacity-80 mb-6">Ideal para una evaluación inicial y rápida de áreas clave.</p>
-                    <div class="border-t border-b border-gray-600 py-6 mb-6">
-                        <ul class="space-y-3 text-light-white text-opacity-90">
-                            <li class="flex items-center"><i class="fas fa-check-circle text-ceo-purple mr-2"></i>Análisis de Procesos Básicos</li>
-                            <li class="flex items-center"><i class="fas fa-check-circle text-ceo-purple mr-2"></i>Identificación de Puntos de Mejora</li>
-                            <li class="flex items-center"><i class="fas fa-check-circle text-ceo-purple mr-2"></i>Reporte de Recomendaciones Generales</li>
-                        </ul>
+        <section id="services">
+            <div class="container">
+                <h2 class="section-title">Nuestros Servicios</h2>
+                <div class="services-grid">
+                    <div class="service-card">
+                        <i class="fas fa-file-signature icon"></i>
+                        <h3>Fianzas de Licitación y Concurso</h3>
+                        <p>Garantizamos la seriedad de sus propuestas en procesos de licitación, brindando confianza a sus mandantes.</p>
                     </div>
-                    <p class="text-sm text-light-white text-opacity-70 mb-2">Tiempo de Entrega: 1-2 semanas</p>
-                    <p class="text-4xl font-extrabold text-light-white mb-6">MXN $15,000</p>
-                    <a href="#contact" class="block w-full text-center bg-ceo-purple text-light-white font-semibold py-3 px-6 rounded-full hover:bg-ceo-purple-dark transition duration-300" aria-label="Seleccionar paquete Bronce">
-                        Solicitar Bronce
-                    </a>
-                </div>
-
-                <!-- Package Plata -->
-                <div class="bg-brushed-gray p-8 rounded-2xl shadow-xl border-2 border-transparent hover:border-ceo-purple transition duration-300 transform hover:-translate-y-2">
-                    <h3 class="text-3xl font-bold text-ceo-purple mb-4">Plata</h3>
-                    <p class="text-light-white text-opacity-80 mb-6">Soluciones detalladas para optimizar áreas específicas y mejorar la eficiencia.</p>
-                    <div class="border-t border-b border-gray-600 py-6 mb-6">
-                        <ul class="space-y-3 text-light-white text-opacity-90">
-                            <li class="flex items-center"><i class="fas fa-check-circle text-ceo-purple mr-2"></i>Diagnóstico Operativo Profundo</li>
-                            <li class="flex items-center"><i class="fas fa-check-circle text-ceo-purple mr-2"></i>Desarrollo de Estrategias Personalizadas</li>
-                            <li class="flex items-center"><i class="fas fa-check-circle text-ceo-purple mr-2"></i>Implementación Asistida de Mejoras</li>
-                            <li class="flex items-center"><i class="fas fa-check-circle text-ceo-purple mr-2"></i>Capacitación Básica para Equipos</li>
-                        </ul>
+                    <div class="service-card">
+                        <i class="fas fa-check-double icon"></i>
+                        <h3>Fianzas de Cumplimiento</h3>
+                        <p>Aseguramos la ejecución en tiempo y forma de los contratos, protegiendo los intereses de todas las partes.</p>
                     </div>
-                    <p class="text-sm text-light-white text-opacity-70 mb-2">Tiempo de Entrega: 3-4 semanas</p>
-                    <p class="text-4xl font-extrabold text-light-white mb-6">MXN $40,000</p>
-                    <a href="#contact" class="block w-full text-center bg-ceo-purple text-light-white font-semibold py-3 px-6 rounded-full hover:bg-ceo-purple-dark transition duration-300" aria-label="Seleccionar paquete Plata">
-                        Solicitar Plata
-                    </a>
-                </div>
-
-                <!-- Package Oro -->
-                <div class="bg-brushed-gray p-8 rounded-2xl shadow-xl border-2 border-transparent hover:border-ceo-purple transition duration-300 transform hover:-translate-y-2">
-                    <h3 class="text-3xl font-bold text-ceo-purple mb-4">Oro</h3>
-                    <p class="text-light-white text-opacity-80 mb-6">Transformación integral y acompañamiento estratégico a largo plazo.</p>
-                    <div class="border-t border-b border-gray-600 py-6 mb-6">
-                        <ul class="space-y-3 text-light-white text-opacity-90">
-                            <li class="flex items-center"><i class="fas fa-check-circle text-ceo-purple mr-2"></i>Análisis Estratégico Completo</li>
-                            <li class="flex items-center"><i class="fas fa-check-circle text-ceo-purple mr-2"></i>Diseño e Implementación de Modelos de Gestión</li>
-                            <li class="flex items-center"><i class="fas fa-check-circle text-ceo-purple mr-2"></i>Optimización de Cadenas de Suministro</li>
-                            <li class="flex items-center"><i class="fas fa-check-circle text-ceo-purple mr-2"></i>Seguimiento y Ajustes Continuos</li>
-                            <li class="flex items-center"><i class="fas fa-check-circle text-ceo-purple mr-2"></i>Capacitación Avanzada y Mentoría</li>
-                        </ul>
+                    <div class="service-card">
+                        <i class="fas fa-hand-holding-usd icon"></i>
+                        <h3>Fianzas de Anticipo</h3>
+                        <p>Resguardamos el buen uso de los recursos financieros adelantados para el inicio de sus proyectos.</p>
                     </div>
-                    <p class="text-sm text-light-white text-opacity-70 mb-2">Tiempo de Entrega: 6-12 semanas</p>
-                    <p class="text-4xl font-extrabold text-light-white mb-6">MXN $75,000+</p>
-                    <a href="#contact" class="block w-full text-center bg-ceo-purple text-light-white font-semibold py-3 px-6 rounded-full hover:bg-ceo-purple-dark transition duration-300" aria-label="Seleccionar paquete Oro">
-                        Solicitar Oro
-                    </a>
+                    <div class="service-card">
+                        <i class="fas fa-hard-hat icon"></i>
+                        <h3>Seguro de Responsabilidad Civil</h3>
+                        <p>Cobertura integral ante daños a terceros que puedan ocurrir durante la ejecución de la obra.</p>
+                    </div>
+                    <div class="service-card">
+                        <i class="fas fa-truck-monster icon"></i>
+                        <h3>Seguro de Equipo de Contratista</h3>
+                        <p>Protección completa para su maquinaria y equipo pesado contra todo riesgo.</p>
+                    </div>
+                    <div class="service-card">
+                        <i class="fas fa-shield-alt icon"></i>
+                        <h3>Asesoría en Gestión de Riesgos</h3>
+                        <p>Análisis y consultoría para minimizar la exposición a riesgos contractuales y operativos.</p>
+                    </div>
                 </div>
             </div>
         </section>
 
-        <!-- Ventajas Competitivas Section -->
-        <section id="ventajas" class="py-16 md:py-24 bg-ceo-purple px-6 lg:px-12 rounded-t-3xl">
-            <h2 class="text-3xl md:text-5xl font-bold text-center text-light-white mb-12">Ventajas Competitivas de CEO</h2>
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 max-w-7xl mx-auto">
-                <!-- Advantage 1 -->
-                <div class="bg-brushed-gray p-6 rounded-xl shadow-lg text-center flex flex-col items-center justify-center transform hover:scale-105 transition duration-300">
-                    <i class="fas fa-user-tie text-ceo-purple text-5xl mb-4" aria-hidden="true"></i>
-                    <h3 class="text-xl font-semibold text-light-white mb-2">Expertise Especializada</h3>
-                    <p class="text-light-white text-opacity-80">Nuestro equipo está compuesto por profesionales con décadas de experiencia en el sector de la construcción.</p>
-                </div>
-                <!-- Advantage 2 -->
-                <div class="bg-brushed-gray p-6 rounded-xl shadow-lg text-center flex flex-col items-center justify-center transform hover:scale-105 transition duration-300">
-                    <i class="fas fa-lightbulb text-ceo-purple text-5xl mb-4" aria-hidden="true"></i>
-                    <h3 class="text-xl font-semibold text-light-white mb-2">Soluciones Innovadoras</h3>
-                    <p class="text-light-white text-opacity-80">Aplicamos metodologías de vanguardia para garantizar la eficiencia y la calidad en cada proyecto.</p>
-                </div>
-                <!-- Advantage 3 -->
-                <div class="bg-brushed-gray p-6 rounded-xl shadow-lg text-center flex flex-col items-center justify-center transform hover:scale-105 transition duration-300">
-                    <i class="fas fa-handshake text-ceo-purple text-5xl mb-4" aria-hidden="true"></i>
-                    <h3 class="text-xl font-semibold text-light-white mb-2">Enfoque Personalizado</h3>
-                    <p class="text-light-white text-opacity-80">Cada cliente recibe una atención y soluciones adaptadas a sus necesidades únicas.</p>
-                </div>
-                <!-- Advantage 4 -->
-                <div class="bg-brushed-gray p-6 rounded-xl shadow-lg text-center flex flex-col items-center justify-center transform hover:scale-105 transition duration-300">
-                    <i class="fas fa-chart-line text-ceo-purple text-5xl mb-4" aria-hidden="true"></i>
-                    <h3 class="text-xl font-semibold text-light-white mb-2">Resultados Medibles</h3>
-                    <p class="text-light-white text-opacity-80">Comprometidos con la entrega de resultados tangibles que impulsan el crecimiento de su negocio.</p>
+        <section id="about">
+            <div class="container">
+                <div class="about-us-content">
+                    <div class="about-us-text">
+                        <h2>Quiénes Somos</h2>
+                        <p>Somos un despacho de consultoría especializado en la gestión integral de seguros y fianzas, con un enfoque en la mitigación de riesgos y la optimización de recursos para el sector de la construcción e infraestructura.</p>
+                        <div class="mission-box">
+                            <h4>Nuestra Misión</h4>
+                            <p>Brindar certeza y seguridad a nuestros clientes a través de soluciones personalizadas y un servicio de excelencia.</p>
+                        </div>
+                    </div>
+                    <div class="about-us-image">
+                        <img src="https://images.unsplash.com/photo-1581092921462-2052b6e326b4?q=80&w=1887&auto=format&fit=crop" alt="Equipo de profesionales en una reunión de trabajo">
+                    </div>
                 </div>
             </div>
         </section>
 
-        <!-- About CEO Section -->
-        <section id="about" class="py-16 md:py-24 bg-graphite-dark px-6 lg:px-12 rounded-b-3xl">
-            <h2 class="text-3xl md:text-5xl font-bold text-center text-light-white mb-12">Acerca de Cascos Expertise Outsourcing (CEO)</h2>
-            <div class="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-                <div class="space-y-8">
-                    <div>
-                        <h3 class="text-2xl font-bold text-ceo-purple mb-3">Nuestra Misión</h3>
-                        <p class="text-light-white text-opacity-90 leading-relaxed">
-                            Empoderar a las Pequeñas y Medianas Empresas (PyMEs) del sector de la construcción con soluciones de outsourcing estratégico, optimizando sus operaciones, reduciendo costos y elevando su competitividad mediante un equipo de expertos dedicados.
-                        </p>
+        <section id="advantage" style="background-color: var(--light-gray);">
+            <div class="container">
+                <h2 class="section-title">Nuestra Ventaja Competitiva</h2>
+                <div class="advantage-grid">
+                    <div class="advantage-item">
+                        <i class="fas fa-medal icon"></i>
+                        <div>
+                            <h4>Experiencia Comprobada</h4>
+                            <p>Más de 20 años liderando el sector de fianzas para la construcción.</p>
+                        </div>
                     </div>
-                    <div>
-                        <h3 class="text-2xl font-bold text-ceo-purple mb-3">Nuestra Visión</h3>
-                        <p class="text-light-white text-opacity-90 leading-relaxed">
-                            Ser el socio estratégico líder en soluciones de outsourcing para la industria de la construcción en México, reconocidos por nuestra excelencia, innovación y el impacto transformador en el éxito de nuestros clientes.
-                        </p>
+                    <div class="advantage-item">
+                        <i class="fas fa-bolt icon"></i>
+                        <div>
+                            <h4>Respuesta Ágil</h4>
+                            <p>Procesos optimizados para la emisión de fianzas en tiempo récord.</p>
+                        </div>
                     </div>
-                    <div>
-                        <h3 class="text-2xl font-bold text-ceo-purple mb-3">Nuestra Propuesta de Valor</h3>
-                        <ul class="list-disc list-inside text-light-white text-opacity-90 space-y-2">
-                            <li><span class="font-semibold">Optimización de Costos:</span> Reducción significativa de gastos operativos sin sacrificar calidad.</li>
-                            <li><span class="font-semibold">Eficiencia Mejorada:</span> Implementación de procesos ágiles y tecnologías que incrementan la productividad.</li>
-                            <li><span class="font-semibold">Acceso a Expertise:</span> Disposición de un equipo multidisciplinario de especialistas sin incurrir en costos de nómina fijos.</li>
-                            <li><span class="font-semibold">Enfoque en el Core Business:</span> Libere a su equipo para concentrarse en las actividades centrales que impulsan su crecimiento.</li>
-                        </ul>
+                    <div class="advantage-item">
+                        <i class="fas fa-lightbulb icon"></i>
+                        <div>
+                            <h4>Asesoría Estratégica</h4>
+                            <p>No solo tramitamos, creamos estrategias de afianzamiento que fortalecen sus proyectos.</p>
+                        </div>
                     </div>
-                </div>
-                <div class="space-y-8 lg:pl-10">
-                    <div>
-                        <h3 class="text-2xl font-bold text-ceo-purple mb-3">Estadísticas Clave y Logros</h3>
-                        <ul class="list-none space-y-4 text-light-white text-opacity-90">
-                            <li class="flex items-center"><i class="fas fa-building text-ceo-purple text-3xl mr-3" aria-hidden="true"></i><span class="text-2xl font-bold text-light-white">10+ Años</span> de experiencia en el sector.</li>
-                            <li class="flex items-center"><i class="fas fa-check-double text-ceo-purple text-3xl mr-3" aria-hidden="true"></i><span class="text-2xl font-bold text-light-white">150+ Proyectos</span> exitosos completados.</li>
-                            <li class="flex items-center"><i class="fas fa-smile text-ceo-purple text-3xl mr-3" aria-hidden="true"></i><span class="text-2xl font-bold text-light-white">95% Satisfacción</span> de nuestros clientes.</li>
-                            <li class="flex items-center"><i class="fas fa-dollar-sign text-ceo-purple text-3xl mr-3" aria-hidden="true"></i><span class="text-2xl font-bold text-light-white">20% Reducción</span> promedio de costos operativos para clientes.</li>
-                        </ul>
-                    </div>
-                    <div>
-                        <h3 class="text-2xl font-bold text-ceo-purple mb-3">Testimonios de Clientes Satisfechos</h3>
-                        <div class="space-y-6">
-                            <blockquote class="bg-brushed-gray p-6 rounded-xl shadow-md border-l-4 border-ceo-purple">
-                                <p class="italic text-light-white text-opacity-90 mb-3">"CEO nos ayudó a reestructurar nuestros procesos de contabilidad y logística. Vimos una mejora inmediata en la eficiencia y una reducción significativa en nuestros gastos."</p>
-                                <footer class="text-sm font-semibold text-ceo-purple">- Ing. Ricardo Morales, Director de Operaciones, Constructora del Golfo</footer>
-                            </blockquote>
-                            <blockquote class="bg-brushed-gray p-6 rounded-xl shadow-md border-l-4 border-ceo-purple">
-                                <p class="italic text-light-white text-opacity-90 mb-3">"La consultoría de CEO fue clave para la optimización de nuestro manejo de proyectos. Su expertise nos permitió terminar un proyecto importante antes de lo previsto y bajo presupuesto."</p>
-                                <footer class="text-sm font-semibold text-ceo-purple">- Arq. Sofía Ramírez, Gerente de Proyectos, Grupo Edificador MX</footer>
-                            </blockquote>
+                    <div class="advantage-item">
+                        <i class="fas fa-handshake icon"></i>
+                        <div>
+                            <h4>Red de Confianza</h4>
+                            <p>Sólidas relaciones con las principales afianzadoras y aseguradoras del país.</p>
                         </div>
                     </div>
                 </div>
             </div>
         </section>
 
-        <!-- Contact Form Section -->
-        <section id="contact" class="py-16 md:py-24 bg-ceo-purple px-6 lg:px-12 rounded-t-3xl">
-            <h2 class="text-3xl md:text-5xl font-bold text-center text-light-white mb-12">Hablemos de Tu Próximo Proyecto</h2>
-            <div class="max-w-2xl mx-auto bg-brushed-gray p-8 rounded-2xl shadow-xl">
-                <p class="text-light-white text-opacity-90 text-center mb-8">
-                    Completa el formulario y nos pondremos en contacto contigo a la brevedad para discutir cómo CEO puede potenciar tu negocio.
-                </p>
-                <form id="contact-form" class="space-y-6" aria-label="Formulario de Contacto">
-                    <div>
-                        <label for="name" class="block text-light-white text-lg font-semibold mb-2">Nombre Completo:</label>
-                        <input type="text" id="name" name="name" required class="w-full p-3 rounded-lg bg-graphite-dark text-light-white border border-gray-600 focus:border-ceo-purple focus:ring focus:ring-ceo-purple focus:ring-opacity-50" aria-required="true" placeholder="Tu Nombre">
-                    </div>
-                    <div>
-                        <label for="email" class="block text-light-white text-lg font-semibold mb-2">Correo Electrónico:</label>
-                        <input type="email" id="email" name="email" required class="w-full p-3 rounded-lg bg-graphite-dark text-light-white border border-gray-600 focus:border-ceo-purple focus:ring focus:ring-ceo-purple focus:ring-opacity-50" aria-required="true" placeholder="tu.correo@ejemplo.com">
-                    </div>
-                    <div>
-                        <label for="phone" class="block text-light-white text-lg font-semibold mb-2">Número de Teléfono (Opcional):</label>
-                        <input type="tel" id="phone" name="phone" class="w-full p-3 rounded-lg bg-graphite-dark text-light-white border border-gray-600 focus:border-ceo-purple focus:ring focus:ring-ceo-purple focus:ring-opacity-50" placeholder="Ej. +52 81 1234 5678">
-                    </div>
-                    <div>
-                        <label for="message" class="block text-light-white text-lg font-semibold mb-2">Mensaje:</label>
-                        <textarea id="message" name="message" rows="5" required class="w-full p-3 rounded-lg bg-graphite-dark text-light-white border border-gray-600 focus:border-ceo-purple focus:ring focus:ring-ceo-purple focus:ring-opacity-50" aria-required="true" placeholder="Descríbenos tu proyecto o consulta..."></textarea>
-                    </div>
-                    <button type="submit" class="w-full bg-light-white text-ceo-purple font-bold py-3 px-8 rounded-full shadow-lg hover:bg-gray-200 transition duration-300 transform hover:scale-105" aria-label="Enviar formulario de contacto">
-                        Enviar Mensaje
-                    </button>
-                    <div id="form-message" class="text-center text-light-white mt-4 hidden p-3 bg-ceo-purple rounded-lg" role="alert" aria-live="polite"></div>
-                </form>
+        <section class="cta-section">
+            <div class="container">
+                <h2>¿Listo para Proteger su Inversión?</h2>
+                <a href="#contact" class="btn">Contáctanos Hoy Mismo</a>
             </div>
         </section>
     </main>
 
-    <!-- Footer -->
-    <footer class="bg-graphite-dark py-10 px-6 lg:px-12 text-center rounded-t-3xl">
-        <div class="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-center space-y-6 md:space-y-0">
-            <div class="text-light-white text-opacity-70">
-                &copy; 2025 Cascos Expertise Outsourcing (CEO). Todos los derechos reservados.
+    <footer class="footer" id="contact">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-column">
+                    <h4>Cascos Expertise Outsourcing</h4>
+                    <p>Brindando certeza y seguridad a sus proyectos a través de soluciones integrales en seguros y fianzas.</p>
+                </div>
+                <div class="footer-column">
+                    <h4>Navegación</h4>
+                    <a href="#hero">Inicio</a>
+                    <a href="#services">Servicios</a>
+                    <a href="#about">Nosotros</a>
+                </div>
+                <div class="footer-column">
+                    <h4>Contacto</h4>
+                    <p><i class="fas fa-map-marker-alt"></i> Av. Insurgentes Sur 123, Piso 10, CDMX</p>
+                    <p><i class="fas fa-phone"></i> +52 (55) 1234 5678</p>
+                    <p><i class="fas fa-envelope"></i> contacto@ceo-consultores.com</p>
+                </div>
+                <div class="footer-column">
+                    <h4>Síguenos</h4>
+                    <div class="social-icons">
+                        <a href="#" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
+                        <a href="#" aria-label="Facebook"><i class="fab fa-facebook-square"></i></a>
+                    </div>
+                </div>
             </div>
-            <div class="flex space-x-6">
-                <a href="https://linkedin.com/company/ceo-outsourcing" target="_blank" rel="noopener noreferrer" class="text-light-white hover:text-ceo-purple transition duration-300" aria-label="Visitar nuestro perfil de LinkedIn">
-                    <i class="fab fa-linkedin fa-2x"></i>
-                </a>
-                <a href="https://facebook.com/ceo-outsourcing" target="_blank" rel="noopener noreferrer" class="text-light-white hover:text-ceo-purple transition duration-300" aria-label="Visitar nuestra página de Facebook">
-                    <i class="fab fa-facebook-square fa-2x"></i>
-                </a>
-                <a href="https://instagram.com/ceo-outsourcing" target="_blank" rel="noopener noreferrer" class="text-light-white hover:text-ceo-purple transition duration-300" aria-label="Visitar nuestro perfil de Instagram">
-                    <i class="fab fa-instagram-square fa-2x"></i>
-                </a>
-                <a href="https://twitter.com/ceo-outsourcing" target="_blank" rel="noopener noreferrer" class="text-light-white hover:text-ceo-purple transition duration-300" aria-label="Visitar nuestro perfil de X (anteriormente Twitter)">
-                    <i class="fab fa-x-twitter fa-2x"></i>
-                </a>
-            </div>
-            <div class="text-light-white text-opacity-70 text-sm">
-                Aviso de Privacidad | Términos de Servicio
+            <div class="footer-bottom">
+                <p>&copy; 2025 Cascos Expertise Outsourcing (CEO). Todos los derechos reservados.</p>
             </div>
         </div>
     </footer>
 
     <script>
-        // JavaScript for mobile menu toggle
-        const mobileMenuButton = document.getElementById('mobile-menu-button');
-        const mobileMenu = document.getElementById('mobile-menu');
-        const closeMobileMenuButton = document.getElementById('close-mobile-menu');
-        const mobileMenuLinks = mobileMenu.querySelectorAll('a');
+        // --- SCRIPT PARA MENÚ MÓVIL ---
+        const mobileMenuToggle = document.getElementById('mobile-menu-toggle');
+        const navLinks = document.getElementById('nav-links');
 
-        mobileMenuButton.addEventListener('click', () => {
-            mobileMenu.classList.remove('hidden');
-            mobileMenu.classList.add('flex');
-            document.body.style.overflow = 'hidden'; // Disable scrolling on body
+        mobileMenuToggle.addEventListener('click', () => {
+            navLinks.classList.toggle('active');
         });
 
-        closeMobileMenuButton.addEventListener('click', () => {
-            mobileMenu.classList.add('hidden');
-            mobileMenu.classList.remove('flex');
-            document.body.style.overflow = ''; // Enable scrolling on body
-        });
-
-        // Close mobile menu when a link is clicked
-        mobileMenuLinks.forEach(link => {
+        // --- CERRAR MENÚ MÓVIL AL HACER CLIC EN UN ENLACE ---
+        const allNavLinks = document.querySelectorAll('.nav-links a');
+        allNavLinks.forEach(link => {
             link.addEventListener('click', () => {
-                mobileMenu.classList.add('hidden');
-                mobileMenu.classList.remove('flex');
-                document.body.style.overflow = ''; // Enable scrolling on body
+                if (navLinks.classList.contains('active')) {
+                    navLinks.classList.remove('active');
+                }
             });
-        });
-
-        // JavaScript for contact form submission
-        const contactForm = document.getElementById('contact-form');
-        const formMessage = document.getElementById('form-message');
-
-        contactForm.addEventListener('submit', function(event) {
-            event.preventDefault(); // Prevent default form submission
-
-            // Get form values
-            const name = document.getElementById('name').value;
-            const email = document.getElementById('email').value;
-            const phone = document.getElementById('phone').value;
-            const message = document.getElementById('message').value;
-
-            // Simple validation
-            if (!name || !email || !message) {
-                formMessage.textContent = 'Por favor, completa todos los campos requeridos (Nombre, Correo, Mensaje).';
-                formMessage.classList.remove('hidden', 'bg-ceo-purple');
-                formMessage.classList.add('bg-red-500');
-                return;
-            }
-
-            // In a real application, you would send this data to a backend server.
-            // For this static landing page, we'll just log to console and show a success message.
-            console.log('Formulario enviado:');
-            console.log('Nombre:', name);
-            console.log('Email:', email);
-            console.log('Teléfono:', phone);
-            console.log('Mensaje:', message);
-
-            // Display success message
-            formMessage.textContent = '¡Gracias por tu mensaje! Nos pondremos en contacto contigo pronto.';
-            formMessage.classList.remove('hidden', 'bg-red-500');
-            formMessage.classList.add('bg-ceo-purple');
-
-            // Clear the form fields after a short delay
-            setTimeout(() => {
-                contactForm.reset();
-                formMessage.classList.add('hidden');
-                formMessage.classList.remove('bg-ceo-purple', 'bg-red-500');
-            }, 5000); // Message disappears after 5 seconds
         });
     </script>
 </body>
